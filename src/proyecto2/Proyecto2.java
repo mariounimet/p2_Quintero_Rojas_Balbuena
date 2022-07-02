@@ -6,7 +6,8 @@
 package proyecto2;
 
 import Functions.ReadFunctions;
-import classes.Resumen;
+import Interfaz.Home;
+import classes.HashTable;
 
 /**
  *
@@ -18,11 +19,13 @@ public class Proyecto2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-
         ReadFunctions rf = new ReadFunctions();
         
-        //Resumen r = rf.read();
+        HashTable hashTable = new HashTable();
+        
+        Home home = new Home(hashTable);
+        
+        home.setVisible(true);
 
     }
     

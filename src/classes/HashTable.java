@@ -11,4 +11,22 @@ package classes;
  */
 public class HashTable {
     private Resumen[] repositorio;
+    
+    public String[] routeTitle() {
+        String[] string = new String[repositorio.length];
+        for(int i = 0; i < repositorio.length; i++) {
+            string[i] = repositorio[i].getTitulo();
+        }
+        return string;
+    }
+
+    public Resumen[] getRepositorio() {
+        return repositorio;
+    }
+
+    public void setRepositorio(Resumen[] repositorio) {
+        this.repositorio = repositorio;
+    }
+    
+    
 }

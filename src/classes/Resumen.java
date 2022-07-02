@@ -22,4 +22,60 @@ public class Resumen {
         this.next = null;
     }
     
+    public String obtenerAutores() {
+        String string = "";
+        
+        for(int i = 0; i < autores.length; i++) {
+            string += this.autores[i] + ", ";
+            if((i + 1) < autores.length) {
+                string += ", ";
+            } else {
+                string += ".";
+            }
+        }
+        
+        return string;
+    }
+    
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+    public String[] getPalabras() {
+        return palabras;
+    }
+
+    public void setPalabras(String[] palabras) {
+        this.palabras = palabras;
+    }
+
+    public String[] getAutores() {
+        return autores;
+    }
+
+    public void setAutores(String[] autores) {
+        this.autores = autores;
+    }
+
+    public Resumen getNext() {
+        return next;
+    }
+
+    public void setNext(Resumen next) {
+        this.next = next;
+    }
+    
+    
 }
