@@ -7,8 +7,16 @@ package classes;
 
 /**
  *
- * @author Mario
+ * @author andre
  */
-public class HashTable {
-    private Resumen[] repositorio;
+public class Nodo {
+    Object data;
+    Nodo pnext;
+
+ //Constructor.
+    Nodo (Object o){
+        data=o;
+        pnext=null;
+    }
+  
 }
