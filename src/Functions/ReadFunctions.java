@@ -34,7 +34,7 @@ public class ReadFunctions {
         try{
             titulo = br.readLine();
             
-            System.out.println(titulo);
+//            System.out.println(titulo);
             
             br.readLine();
             line = br.readLine();
@@ -45,15 +45,15 @@ public class ReadFunctions {
             }
             autores = aux.split(",");
             
-            System.out.println(autores.length);
+//            System.out.println(autores.length);
             
             texto = br.readLine();
             
-            System.out.println("\n"+texto+"\n");
+//            System.out.println("\n"+texto+"\n");
             
             aux = br.readLine();
             
-            System.out.println(aux);
+//            System.out.println(aux);
             
             auxArray = aux.split(":");
             palabras = auxArray[1].split(","); 
@@ -69,7 +69,7 @@ public class ReadFunctions {
             }
                 
             for(String i : palabras){
-                System.out.println(i);
+//                System.out.println(i);
             }
             
         }catch(IOException e){

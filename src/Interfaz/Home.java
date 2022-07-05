@@ -6,12 +6,13 @@
 package Interfaz;
 
 import classes.HashTable;
+
 /**
  *
  * @author Mario
  */
 public class Home extends javax.swing.JFrame {
-    
+
     HashTable hashTable;
 
     /**
@@ -19,7 +20,7 @@ public class Home extends javax.swing.JFrame {
      */
     public Home(HashTable hashTable) {
         initComponents();
-        
+
         this.hashTable = hashTable;
     }
 
@@ -84,9 +85,10 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Analyze analyze = new Analyze(hashTable, this);
-        this.setVisible(false);
+        Analyze analyze = new Analyze(this.hashTable);
+
         analyze.setVisible(true);
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed

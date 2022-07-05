@@ -8,6 +8,7 @@ package proyecto2;
 import Functions.ReadFunctions;
 import Interfaz.Home;
 import classes.HashTable;
+import classes.Resumen;
 
 /**
  *
@@ -20,13 +21,24 @@ public class Proyecto2 {
      */
     public static void main(String[] args) {
         ReadFunctions rf = new ReadFunctions();
-        
+
+        Resumen resumen1 = rf.read();
+
         HashTable hashTable = new HashTable();
+
+        hashTable.insertar(resumen1);
+
+        Resumen resumen2 = rf.read();
+
+        hashTable.insertar(resumen2);
         
+        for(int i = 0; i < hashTable.getRepositorio().length; i++) {
+            System.out.println(hashTable.getRepositorio()[i]);
+        }
+
         Home home = new Home(hashTable);
         
         home.setVisible(true);
-
     }
-    
+
 }

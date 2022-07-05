@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author dsre1
  */
 public class Analyze extends javax.swing.JFrame {
-    
+
     AnalyzeSummary analyzeSummary;
     Home home;
     HashTable hashTable;
@@ -24,17 +24,20 @@ public class Analyze extends javax.swing.JFrame {
     /**
      * Creates new form Analyze
      */
-    public Analyze(HashTable hashTable, Home home) {
+    public Analyze(HashTable hashTable) {
         initComponents();
-        
         this.analyzeSummary = new AnalyzeSummary();
         this.home = home;
         this.hashTable = hashTable;
-        //TODO cuando este la clase hashTable hecha entonces descomentar lo de abajo
-        //String[] titulos = hashTable.routeTitle();
-        String[] titulos = {"a", "b", "c"};
-        
-        jList1.setModel(new DefaultComboBoxModel<>(titulos));
+
+        this.setModel();
+
+    }
+
+    public void setModel() {
+        DefaultComboBoxModel model = new DefaultComboBoxModel(this.hashTable.routeTitle());
+
+        jList1.setModel(model);
     }
 
     /**
@@ -127,31 +130,29 @@ public class Analyze extends javax.swing.JFrame {
 
     private void ContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContinueActionPerformed
         String evaluate = jList1.getSelectedValue();
-        //TODO utilizar la funcion del hashtable para obtener el indice index
-        int index = 0;
-        Resumen resumen = hashTable.getRepositorio()[index];
-        
+        System.out.println(evaluate);
+        Resumen resumen = this.hashTable.buscar(evaluate);
+
         String string = "";
-        
+
         string += resumen.getTitulo() + "\n";
         string += "Autores: " + resumen.obtenerAutores() + "\n";
         string += "Palabras Clave: \n";
-        
-        for(int i = 0; i < resumen.getPalabras().length; i++) {
+
+        for (int i = 0; i < resumen.getPalabras().length; i++) {
             String palabra = resumen.getPalabras()[i];
             String texto = resumen.getTexto();
-            
+
             int frequency = analyzeSummary.analyzeText(texto, palabra);
-            
-            string += String.valueOf(i + 1) + ". " + palabra + "con una frecuencia de " + String.valueOf(frequency) + "\n";
+
+            string += String.valueOf(i + 1) + ". " + palabra + " con una frecuencia de " + String.valueOf(frequency) + "\n";
         }
-        
+
         JOptionPane.showMessageDialog(rootPane, string);
     }//GEN-LAST:event_ContinueActionPerformed
 
     private void Continue1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Continue1ActionPerformed
         this.setVisible(false);
-        home.setVisible(true);
     }//GEN-LAST:event_Continue1ActionPerformed
 
 
