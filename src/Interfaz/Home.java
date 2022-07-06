@@ -5,7 +5,9 @@
  */
 package Interfaz;
 
+import Functions.ReadFunctions;
 import classes.HashTable;
+import classes.Resumen;
 
 /**
  *
@@ -14,14 +16,17 @@ import classes.HashTable;
 public class Home extends javax.swing.JFrame {
 
     HashTable hashTable;
-
+    ReadFunctions rf;
     /**
      * Creates new form Home
+     * @param hashTable
      */
     public Home(HashTable hashTable) {
         initComponents();
+        this.setLocationRelativeTo(null);
 
         this.hashTable = hashTable;
+        this.rf = new ReadFunctions();
     }
 
     /**
@@ -37,7 +42,9 @@ public class Home extends javax.swing.JFrame {
         frontText = new javax.swing.JLabel();
         agregar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        busqueda = new javax.swing.JButton();
+        salir = new javax.swing.JButton();
+        busqueda1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -53,7 +60,7 @@ public class Home extends javax.swing.JFrame {
         frontText.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 153, 0), 1, true));
         frontText.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         frontText.setInheritsPopupMenu(false);
-        jPanel1.add(frontText, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 460, 90));
+        jPanel1.add(frontText, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 440, 90));
 
         agregar.setText("Agregar resumen");
         agregar.addActionListener(new java.awt.event.ActionListener() {
@@ -71,15 +78,31 @@ public class Home extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 140, 40));
 
-        jButton3.setText("Busqueda avanzada");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        busqueda.setText("Buscar Autor");
+        busqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                busquedaActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 140, 40));
+        jPanel1.add(busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 140, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 220));
+        salir.setText("Salir del sistema");
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, 40));
+
+        busqueda1.setText("Palabra Clave");
+        busqueda1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                busqueda1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(busqueda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 140, 40));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 310));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -92,19 +115,37 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
-        // TODO add your handling code here:
+        Resumen nuevo = rf.read();
+        if(nuevo != null){
+            hashTable.insertar(nuevo);
+        }
     }//GEN-LAST:event_agregarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void busquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaActionPerformed
+        AutorForm autor = new AutorForm(this.hashTable, "ASd");
+        
+        autor.setVisible(true);
+    }//GEN-LAST:event_busquedaActionPerformed
+
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        rf.guardar(hashTable);
+        System.exit(1);
+    }//GEN-LAST:event_salirActionPerformed
+
+    private void busqueda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busqueda1ActionPerformed
+        Palabra palabra = new Palabra(this.hashTable, "ASDASD");
+
+        palabra.setVisible(true);
+    }//GEN-LAST:event_busqueda1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregar;
+    private javax.swing.JButton busqueda;
+    private javax.swing.JButton busqueda1;
     private javax.swing.JLabel frontText;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
 }

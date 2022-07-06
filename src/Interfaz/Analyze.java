@@ -18,7 +18,6 @@ import javax.swing.JOptionPane;
 public class Analyze extends javax.swing.JFrame {
 
     AnalyzeSummary analyzeSummary;
-    Home home;
     HashTable hashTable;
 
     /**
@@ -27,7 +26,6 @@ public class Analyze extends javax.swing.JFrame {
     public Analyze(HashTable hashTable) {
         initComponents();
         this.analyzeSummary = new AnalyzeSummary();
-        this.home = home;
         this.hashTable = hashTable;
 
         this.setModel();

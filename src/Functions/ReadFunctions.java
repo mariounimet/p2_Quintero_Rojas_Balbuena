@@ -5,11 +5,13 @@
  */
 package Functions;
 
+import classes.HashTable;
 import classes.Resumen;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -78,6 +80,68 @@ public class ReadFunctions {
         }
         
        return new Resumen(titulo, texto, palabras, autores);
+    }
+    
+    public void guardar(HashTable ht){
+        File file = seleccion();
+        
+        try{
+            PrintWriter pw = new PrintWriter(file);
+            pw.write("");
+            for(Resumen resumen : ht.getOriginal()){
+                if(resumen != null){
+                    System.out.print("paso");
+                    pw.append(resumen.getTitulo()+"\n");
+                    
+                    for(String autor : resumen.getAutores()){
+                        pw.append(autor+",");
+                    }
+                    
+                    pw.append("\n");
+                    pw.append(resumen.getTexto()+"\n");
+                    
+                    for(String palabra: resumen.getPalabras()){
+                        pw.append(palabra+",");                       
+                    }
+                    pw.append("\n");                    
+                }
+            }
+            
+            JOptionPane.showMessageDialog(null, "datos guardados");
+            pw.close();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "error al guardar");
+        }        
+    }
+    
+    public HashTable cargar(){
+        File file = seleccion();
+        BufferedReader br = buffReader(file);
+        HashTable ht = new HashTable();
+        String line = "";
+        
+        try{
+            line = br.readLine();
+            while(line != null){
+                                
+                System.out.println(line);
+                String titulo, texto;
+                String[] autores, palabras;
+                titulo = line;
+                autores = br.readLine().split(",");
+                texto = br.readLine();
+                palabras = br.readLine().split(",");
+                
+                ht.insertar(new Resumen(titulo, texto, palabras, autores));
+                line = br.readLine();
+            }
+            br.close();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "error al cargar datos");
+        }
+        
+        return ht;
     }
     
     public File seleccion(){

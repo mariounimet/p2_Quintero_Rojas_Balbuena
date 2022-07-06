@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/proyecto2/Proyecto2.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>26</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/dsre1/OneDrive/Documents/GitHub/p2_Quintero_Rojas_Balbuena/src/Interfaz/Busqueda.java</file>
             <file>file:/C:/Users/dsre1/OneDrive/Documents/GitHub/p2_Quintero_Rojas_Balbuena/src/Interfaz/Home.java</file>
             <file>file:/C:/Users/dsre1/OneDrive/Documents/GitHub/p2_Quintero_Rojas_Balbuena/src/Interfaz/Analyze.java</file>
-            <file>file:/C:/Users/dsre1/OneDrive/Documents/GitHub/p2_Quintero_Rojas_Balbuena/src/classes/Resumen.java</file>
+            <file>file:/C:/Users/dsre1/OneDrive/Documents/GitHub/p2_Quintero_Rojas_Balbuena/src/Interfaz/Palabra.java</file>
             <file>file:/C:/Users/dsre1/OneDrive/Documents/GitHub/p2_Quintero_Rojas_Balbuena/src/classes/HashTable.java</file>
-            <file>file:/C:/Users/dsre1/OneDrive/Documents/GitHub/p2_Quintero_Rojas_Balbuena/src/Functions/ReadFunctions.java</file>
+            <file>file:/C:/Users/dsre1/OneDrive/Documents/GitHub/p2_Quintero_Rojas_Balbuena/src/Interfaz/AutorForm.java</file>
             <file>file:/C:/Users/dsre1/OneDrive/Documents/GitHub/p2_Quintero_Rojas_Balbuena/src/proyecto2/Proyecto2.java</file>
         </group>
     </open-files>
