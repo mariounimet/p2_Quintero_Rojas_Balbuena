@@ -130,9 +130,16 @@ public class Analyze extends javax.swing.JFrame {
 
     private void ContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContinueActionPerformed
         String evaluate = jList1.getSelectedValue();
-        System.out.println(evaluate);
-        Resumen resumen = this.hashTable.buscar(evaluate);
-
+        
+        Resumen resumen = null;
+        
+        for(int i = 0; i < this.hashTable.getOriginal().length; i++) {
+            Resumen resumen_original = this.hashTable.getOriginal()[i];
+            if(resumen_original.getTitulo().equals(evaluate)) {
+                resumen = resumen_original;
+            }
+        }
+        
         String string = "";
 
         string += resumen.getTitulo() + "\n";
